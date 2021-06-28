@@ -1,15 +1,16 @@
 <?= $this->extend('layout/main') ?>
 <?= $this->section('title') ?>
-<title>Crear Proveedor</title>
+<title>Crear producto</title>
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
+
 <!-- page content -->
 <div class="right_col" role="main">
   <div class="row">
     <div class="col-md-12 col-sm-12 ">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Formulario <small>nuevo proveedor</small></h2>
+          <h2>Formulario <small>crear usuarios</small></h2>
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
@@ -30,71 +31,61 @@
         <div class="x_content">
 
           <br />
-          <form action=<?=base_url('CreatingVendor')?> method="post" enctype="multipart/form-data" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+          <form action=<?= base_url('CreatingUser') ?> method="post" enctype="multipart/form-data" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Nombre de la empresa <span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name"> Nombre Completo <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="first-name" required="required" class="form-control " name="BusinessName">
+                <input type="text" id="first-name" required="required" class="form-control " name="FullName">
               </div>
             </div>
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Dirección <span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nombre de Usuario <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="Address" required="required" class="form-control">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Página web<span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="WebPage" required="required" class="form-control">
+                <input type="text" id="last-name" name="UserName" required="required" class="form-control">
               </div>
             </div>
 
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name"> Tipo <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <select id="heard" class="form-control" name="Type" required>
+                  <option value="ADMIN">Administrador</option>
+                  <option value="NON-ADMIN">No Administrador</option>
 
+                </select>
+              </div>
+            </div>
 
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nombre del representante de la empresa<span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Correo<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="AgentNameOfBusiness" required="required" class="form-control">
+                <input type="email" id="last-name" name="Email" required="required" class="form-control">
               </div>
             </div>
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Teléfono de la empresa<span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Contraseña<span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="BusinessPhoneNumber" required="required" class="form-control">
+                <input type="password" id="last-name" name="Password" required="required" class="form-control">
+              </div>
+            </div>
+
+            <div class="item form-group">
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Confirma la contraseña <span class="required">*</span>
+              </label>
+              <div class="col-md-6 col-sm-6 ">
+                <input type="password" id="last-name" name="ConfirmPassword" required="required" class="form-control">
               </div>
             </div>
             <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Correo del representante de la empresa<span class="required">*</span>
+              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Teléfono <span class="required">*</span>
               </label>
               <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="AgentEmail" required="required" class="form-control">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Teléfono del representante de la empresa<span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="AgentPhone" required="required" class="form-control">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">RFC<span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="RFC" required="required" class="form-control">
-              </div>
-            </div>
-            <div class="item form-group">
-              <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Correo de la empresa<span class="required">*</span>
-              </label>
-              <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="BusinessEmail" required="required" class="form-control">
+                <input type="text" id="last-name" name="Phone" required="required" class="form-control">
               </div>
             </div>
             <div class="item form-group">
@@ -102,17 +93,18 @@
               <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Imagen</label>
               <div class="col-md-6 col-sm-6 ">
                 <div class="custom-file">
-                  <input id="updatingfile" type="file" data-role="magic-overlay" data-target="#pictureBtn" name="Photo" data-edit="insertImage" class="custom-file-input">
+                  <input id="updatingfile" type="file" data-role="magic-overlay" data-target="#pictureBtn" name="Photo" data-edit="insertImage" class="custom-file-input" required>
                   <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                   <div class="invalid-feedback">Example invalid custom file feeback</div>
                 </div>
               </div>
             </div>
             <div class="ln_solid"></div>
-              <div class="item form-group">
-                <div class="col-md-6 col-sm-6 offset-md-3" id="insertImage">
-                </div>
+            <div class="item form-group">
+              <div class="col-md-6 col-sm-6 offset-md-3" id="insertImage">
               </div>
+            </div>
+
             <div class="ln_solid"></div>
             <div class="item form-group">
               <div class="col-md-6 col-sm-6 offset-md-3">
@@ -124,8 +116,12 @@
               <div class="alert alert-danger"><?= $validator->listErrors()  ?></div>
             <?php endif; ?>
             <?php if (isset($invalidInsert)) : ?>
-              <div class="alert alert-danger"><?= $invalidInsert ?></div>
+              <div class="alert alert-danger"><?= $invalidInsert  ?></div>
             <?php endif; ?>
+
+
+
+
 
           </form>
         </div>
@@ -139,5 +135,4 @@
 </div>
 </div>
 <!-- /page content -->
-
 <?= $this->endSection() ?>

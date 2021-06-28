@@ -1,11 +1,45 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use CodeIgniter\Model;
+use  App\Controllers\Constant\FileConstant;
 class VendorModel extends Model
 {
 	protected $table = 'provider';
-	protected $allowedFields = ['idProvider', 'Business_Name', 'Address', 'Webpage', 'Agent_Name_Of_Business', 'Business_Phone_Number', 'Agent_Email', 'RFC', 'Business_Email', 'Create_At', 'Update_At', 'IdUser'];
-	
-
-	
+	protected $primaryKey = "idProvider";
+	protected $useTimestamps  = true;
+	protected $createdField = "CreateAt";
+	protected $updatedField = "UpdateAt";
+	protected $allowedFields = [
+		'idProvider',
+		'BusinessName',
+		'Address',
+		'WebPage',
+		'AgentNameOfBusiness',
+		'BusinessPhoneNumber',
+		'AgentEmail',
+		'RFC',
+		'BusinessEmail',
+		'CreateAt',
+		'UpdateAt',
+		'IdUser',
+		'Photo',
+		'AgentPhone'
+	];
+	public function save($data):bool
+	{
+		$session = session();
+		$data['IdUser'] = $session->Id;
+		return parent::save($data);
+	}
+	public function getAll()
+	{
+		$vendors = $this->asObject()->findAll();
+		for($i = 0; $i<count($vendors); $i++)
+        {
+            $vendors[$i]->Photo = FileConstant::PATH_TO_VENDOR_IMAGES_TO_LOCALHOST.$vendors[$i]->Photo;
+        }
+		return $vendors;
+	}
 }

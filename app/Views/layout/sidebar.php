@@ -1,4 +1,3 @@
-
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
@@ -13,14 +12,14 @@
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="production/images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src=<?= session()->Photo ?> alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Bienvenido</span>
-              <h2><?= session()->FullName?></h2>
-              <h2><?= session()->Rol?></h2>
+              <h2><?= session()->FullName ?></h2>
+              <h2><?= session()->Rol ?></h2>
             </div>
-            
+
           </div>
           <!-- /menu profile quick info -->
 
@@ -31,34 +30,33 @@
             <div class="menu_section">
               <h3>General</h3>
               <ul class="nav side-menu">
-                <li><a href="/sol/public/Dashboard"><i class="fa fa-home" ></i> Home </a></li>
+                <li><a href="/sol/public/Dashboard"><i class="fa fa-home"></i> Home </a></li>
                 <li><a><i class="fa fa-inbox"></i> Productos <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="/sol/public/CGProduct">Registro </a></li>
-                    <li><a href="/sol/public/RqtsProduct">Consulta</a></li>
-                    <li><a href="/sol/public/UdgProduct">Actualizacion</a></li>
-
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="#">Disponibles</a></li>
+                    <li><a href=<?= base_url('viewToCreateProduct') ?>>Registro </a></li>
+                    <li><a href=<?= base_url("viewToRequestProduct") ?>>Consulta</a></li>
 
 
                   </ul>
                 </li>
+                <?php if (session()->IsAdmin) : ?>
+                  <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href=<?= base_url('viewToRequestUser') ?>>Disponibles</a></li>
+                    </ul>
+                  </li>
+                <?php endif ?>
                 <li><a><i class="fa fa-male"></i> Clientes <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="/sol/public/CGCustomer">Registro </a></li>
-                    <li><a href="/sol/public/RqtsCustomer">Consulta</a></li>
-                    <li><a href="/sol/public/UdgCustomer">Actualizacion</a></li>
+                    <li><a href=<?= base_url('viewToCreateCustomer') ?>>Registro </a></li>
+                    <li><a href=<?= base_url('viewToRequestCustomer') ?>>Consulta</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-users"></i> Provedores <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="/sol/public/CGVendor">Registro </a></li>
-                    <li><a href="/sol/public/RqtsVendor">Consulta</a></li>
-                    <li><a href="/sol/public/UdgVendor">Actualizacion</a></li>
+                    <li><a href=<?= base_url('viewToCreateVendor') ?>>Registro </a></li>
+                    <li><a href=<?= base_url('viewToRequestVendor') ?>>Consulta</a></li>
+
                   </ul>
                 </li>
                 <li><a><i class="fa fa-line-chart"></i> Ventas <span class="fa fa-chevron-down"></span></a>
@@ -79,9 +77,9 @@
                 <li><a href="/sol/public/inventory"><i class="fa fa-inbox"></i> Iventario <span class="fa fa-chevron-down"></span></a></li>
               </ul>
             </div>
-          </ul>
+            </ul>
+          </div>
+
+
         </div>
-
-
-      </div>
-      <!-- /sidebar menu -->
+        <!-- /sidebar menu -->

@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 
+use  App\Controllers\Constant\FileConstant;
 use  App\Models\UserModel;
 class Login
 {
@@ -21,7 +22,9 @@ class Login
 					'UserName' => $userdata['UserName'],
 					'FullName' => $userdata['FullName'],
 					'Rol' => $userdata['Type'],
-					'Photo' => $userdata['Photo'],
+					'IsAdmin' => $userdata['Type'] == "ADMIN" ? TRUE: FALSE,
+					'Photo' => FileConstant::PATH_TO_USER_IMAGES_TO_LOCALHOST.$userdata['Photo'],
+					'Id' => $userdata['idUser'],
 					'isLoggedIn' => true
 
 				];

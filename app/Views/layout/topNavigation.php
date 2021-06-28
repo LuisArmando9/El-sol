@@ -25,7 +25,7 @@
         class="nav-item dropdown open" style="padding-left: 15px;"> <a
         href="javascript:;" class="user-profile dropdown-toggle"
         aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown"
-        aria-expanded="false"> <img src="production/images/img.jpg"
+        aria-expanded="false"> <img src=<?= session()->Photo?>
         alt=""><?= session()->UserName?> </a> <div class="dropdown-menu
         dropdown-usermenu pull-right" aria-labelledby="navbarDropdown"> <a
         class="dropdown-item"  href="javascript:;"> Profile</a> <a

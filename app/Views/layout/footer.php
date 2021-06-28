@@ -49,6 +49,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src=<?= base_url()."/build/js/custom.min.js"?>></script>
+    <script src=<?= base_url()."/build/js/updatingfile.js"?>></script>
 
   </body>
 </html>

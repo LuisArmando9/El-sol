@@ -4,7 +4,10 @@ use CodeIgniter\Model;
 class ProductToProviderModel extends Model
 {
 	protected $table = 'product_to_provider';
-	protected $allowedFields = [ 'Product_idProduct', 'Provider_idProvider'];
+	protected $allowedFields = [ 'idProduct', 'idProvider'];
+	protected $useTimestamps  = true;
+	protected $createdField = "CreateAt";
+	protected $updatedField = "UpdateAt";
 	
 
 	
